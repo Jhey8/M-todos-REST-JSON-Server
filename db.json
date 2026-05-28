@@ -1,0 +1,29 @@
+{
+  "usuarios": [
+    {
+      "nombre": "Lucia Fernandez",
+      "email": "lucia@gmail.com",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "nombre": "Pedro Utco",
+      "email": "pedro@gmail.com"
+    },
+    {
+      "id": 4,
+      "nombre": "Fernando Fabito",
+      "email": "fer@gmail.com"
+    },
+    {
+      "id": 5,
+      "nombre": "Fabricio Karlo",
+      "email": "fabi@gmail.com"
+    },
+    {
+      "nombre": "Jhey Barboza",
+      "email": "jheymybm@hotmail.com",
+      "id": 6
+    }
+  ]
+}

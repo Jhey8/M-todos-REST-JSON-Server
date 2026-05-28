@@ -1,0 +1,28 @@
+.contenedor {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    font-size: 20px;
+}
+
+h3 {
+    color: #368fdd;
+    font-weight: bold;
+    margin: 0;
+    
+}
+
+p{
+    color: #000;
+    margin: 0;
+    text-align: center;
+
+}
+
+small{
+    color: #222;
+}
