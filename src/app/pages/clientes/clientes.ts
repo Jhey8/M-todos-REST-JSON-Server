@@ -5,7 +5,7 @@ import { Cliente } from '../../services/cliente';
 @Component({
   selector: 'app-clientes',
   standalone:true,
-  imports: [Navbar],
+  imports: [],
   templateUrl: './clientes.html',
   styleUrl: './clientes.css',
 })

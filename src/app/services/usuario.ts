@@ -5,6 +5,7 @@ import { UsuarioInterface } from '../models/usuario-interface';
 
 @Injectable({
   providedIn: 'root',
+  
 })
 export class Usuario {
 
