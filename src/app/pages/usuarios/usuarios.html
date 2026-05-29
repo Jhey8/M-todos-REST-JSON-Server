@@ -1,4 +1,4 @@
-<div class="contenedor container d-flex justify-content-center align-items-center flex-column vh-100">
+<div class="contenedor container d-flex justify-content-center align-items-center flex-column vh-100" >
   <h3 class="fw-bold text-info">Lista de Usuarios (JSON Server - API REST)</h3>
 
   <div class="formulario">
@@ -6,7 +6,7 @@
 
       <input class="p-2 rounded-3 border-info" [(ngModel)]="formUsuario.nombre" placeholder="Nombre" />
       <input class="p-2 rounded-3 border-info"  [(ngModel)]="formUsuario.email" placeholder="Email" />
-      <button (click)="guardarUsuario()" class="btn btn-outline-success border-2">
+      <button (click)="guardarUsuario()" class="btn btn-outline-success border-2" [disabled]="!formUsuario.nombre?.trim() || !formUsuario.email?.trim()">
         {{ editandoId === null ? 'Agregar' : 'Actualizar' }}
       </button>
 
@@ -16,8 +16,8 @@
       <button (click)="limpiar()" class="btn btn-secondary mt-2">Cancelar</button>
     }
   </div>
-
-  <table class="m-5 table">
+  <div class="w-100 px-5" style="max-height: 50vh; overflow-y: auto;">
+    <table class="table">
     <thead class="table-dark">
       <tr class="">
         <th scope="col" class="text-center">ID</th>
@@ -26,7 +26,7 @@
         <th scope="col" class="text-center">Acciones</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-responsive">
       @for (usuario of usuarios(); track usuario.id) {
       <tr>
         <td scope="row" class="text-center">{{ usuario.id }}</td>
@@ -44,4 +44,5 @@
       }
     </tbody>
   </table>
+  </div>
 </div>

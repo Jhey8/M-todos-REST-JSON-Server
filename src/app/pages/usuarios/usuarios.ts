@@ -40,6 +40,11 @@ export class Usuarios implements OnInit {
   }
 
   guardarUsuario(): void {
+    if (!this.formUsuario.nombre.trim() || !this.formUsuario.email.trim()) {
+      alert('Por favor, completa todos los campos (nombre y email).');
+      return;
+    }
+
     if(this.editandoId === null){
 
       this.usuarioService.crearUsuario(this.formUsuario).subscribe(()=>{

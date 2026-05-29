@@ -5,6 +5,11 @@ import { Usuarios } from './pages/usuarios/usuarios';
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: '/principal',
+        pathMatch: 'full'
+    },
+    {
         path: "principal",
         component: Principal
     },

@@ -1,0 +1,11 @@
+.table-scroll-vertical {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.table-scroll-vertical thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}
