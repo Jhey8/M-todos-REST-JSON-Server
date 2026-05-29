@@ -1,24 +1,26 @@
 <div class="contenedor container d-flex justify-content-center align-items-center flex-column vh-100">
     <h3 class="text-primary fw-bold">Lista de Clientes (servicio local)</h3>
 
-    <table class="table my-5">
-        <thead class="table-light">
-            <tr>
-                <th scope="col" class="text-center">ID</th>
-                <th scope="col" class="text-center">Nombre</th>
-                <th scope="col" class="text-center">Correo</th>
-                <th scope="col" class="text-center">Edad</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (cliente of clientes; track cliente.id) {
+    <div class="mt-5" style="max-height: 400px; overflow-y: auto; width: 100%; max-width: 900px;">
+        <table class="table my-5">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" class="text-center">Nombre</th>
+                    <th scope="col" class="text-center">Correo</th>
+                    <th scope="col" class="text-center">Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (cliente of clientes; track cliente.id) {
                 <tr>
                     <td scope="row" class="text-center">{{ cliente.id }}</td>
                     <td scope="row" class="text-center">{{ cliente.nombre }}</td>
                     <td scope="row" class="text-center">{{ cliente.correo }}</td>
                     <td scope="row" class="text-center">{{ cliente.edad }}</td>
                 </tr>
-            }
-        </tbody>
-    </table>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
