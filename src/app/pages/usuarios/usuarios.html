@@ -1,11 +1,11 @@
-<div class="contenedor container d-flex justify-content-center align-items-center flex-column vh-100">
+<div class="contenedor container d-flex align-items-center flex-column" style="margin-top: 200px;">
   <h3 class="fw-bold text-info">Lista de Usuarios (JSON Server - API REST)</h3>
 
   <div class="formulario">
     <div class="d-flex flex-row gap-2">
 
       <input class="p-2 rounded-3 border-info" [(ngModel)]="formUsuario.nombre" placeholder="Nombre" />
-      <input class="p-2 rounded-3 border-info"  [(ngModel)]="formUsuario.email" placeholder="Email" />
+      <input class="p-2 rounded-3 border-info" [(ngModel)]="formUsuario.email" placeholder="Email" />
       <button (click)="guardarUsuario()" class="btn btn-outline-success border-2">
         {{ editandoId === null ? 'Agregar' : 'Actualizar' }}
       </button>
@@ -13,35 +13,39 @@
     </div>
 
     @if (editandoId !== null) {
-      <button (click)="limpiar()" class="btn btn-secondary mt-2">Cancelar</button>
+    <button (click)="limpiar()" class="btn btn-secondary mt-2">Cancelar</button>
     }
+
   </div>
 
-  <table class="m-5 table">
-    <thead class="table-dark">
-      <tr class="">
-        <th scope="col" class="text-center">ID</th>
-        <th scope="col" class="text-center">Nombre</th>
-        <th scope="col" class="text-center">Email</th>
-        <th scope="col" class="text-center">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (usuario of usuarios(); track usuario.id) {
-      <tr>
-        <td scope="row" class="text-center">{{ usuario.id }}</td>
-        <td scope="row" class="text-center">{{ usuario.nombre }}</td>
-        <td scope="row" class="text-center">{{ usuario.email }}</td>
-        <td scope="row" class="text-center">
-          <button (click)="editarUsuario(usuario)" class="btn btn-info me-2">Editar</button>
-          <button (click)="eliminarUsuario(usuario.id!)" class="btn btn-danger">Eliminar</button>
-        </td>
-      </tr>
-      } @empty {
-      <tr>
-        <td colspan="4">No hay usuarios registrados.</td>
-      </tr>
-      }
-    </tbody>
-  </table>
+  <div class="mt-5" style="max-height: 400px; overflow-y: auto; width: 100%; max-width: 900px;">
+    <table class="table">
+      <thead class="table-light">
+        <tr class="">
+          <th scope="col" class="text-center">ID</th>
+          <th scope="col" class="text-center">Nombre</th>
+          <th scope="col" class="text-center">Email</th>
+          <th scope="col" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (usuario of usuarios(); track usuario.id) {
+        <tr>
+          <td scope="row" class="text-center">{{ usuario.id }}</td>
+          <td scope="row" class="text-center">{{ usuario.nombre }}</td>
+          <td scope="row" class="text-center">{{ usuario.email }}</td>
+          <td scope="row" class="text-center">
+            <button (click)="editarUsuario(usuario)" class="btn btn-info me-2">Editar</button>
+            <button (click)="eliminarUsuario(usuario.id!)" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="4">No hay usuarios registrados.</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
 </div>

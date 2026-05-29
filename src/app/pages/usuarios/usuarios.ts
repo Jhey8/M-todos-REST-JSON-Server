@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Usuario } from '../../services/usuario';
 import { UsuarioInterface } from '../../models/usuario-interface';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -40,17 +41,32 @@ export class Usuarios implements OnInit {
   }
 
   guardarUsuario(): void {
-    if(this.editandoId === null){
 
-      this.usuarioService.crearUsuario(this.formUsuario).subscribe(()=>{
+    const nombre = this.formUsuario.nombre.trim();
+    const email = this.formUsuario.email.trim();
+
+    if (nombre === '' || email === '') {
+
+      Swal.fire({
+        title: "Agregar Usuarios",
+        text: "Debes completar los datos!",
+        icon: "info"
+      });
+
+      return;
+    }
+
+    if (this.editandoId === null) {
+
+      this.usuarioService.crearUsuario(this.formUsuario).subscribe(() => {
 
         this.cargarUsuarios();
         this.limpiar();
       });
 
-    }else{
+    } else {
 
-      this.usuarioService.actualizarUsuario(this.editandoId, this.formUsuario).subscribe(()=>{
+      this.usuarioService.actualizarUsuario(this.editandoId, this.formUsuario).subscribe(() => {
 
         this.cargarUsuarios();
         this.limpiar();
@@ -58,25 +74,25 @@ export class Usuarios implements OnInit {
     }
   }
 
-  editarUsuario(u: UsuarioInterface): void{
+  editarUsuario(u: UsuarioInterface): void {
     this.editandoId = u.id!,
-    this.formUsuario = {
+      this.formUsuario = {
 
-      nombre: u.nombre,
-      email:u.email
-    }
+        nombre: u.nombre,
+        email: u.email
+      }
 
   }
 
-  eliminarUsuario(id: number): void{
+  eliminarUsuario(id: number): void {
 
     this.usuarioService.eliminarUsuario(id).subscribe(() => {
-       this.cargarUsuarios();
+      this.cargarUsuarios();
     })
 
   }
 
-  limpiar(): void{
+  limpiar(): void {
     this.formUsuario = {
       nombre: '',
       email: ''
